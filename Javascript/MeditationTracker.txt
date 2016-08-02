@@ -1,0 +1,95 @@
+function meditationReminder() 
+{
+  var spreadsheet = SpreadsheetApp.openById("SHEET ID HERE");              
+  var sheet = SpreadsheetApp.setActiveSheet(spreadsheet.getSheets()[1]);
+  
+  var lastRow = sheet.getLastRow();
+ 
+  var startRow = 2;
+
+  var range = sheet.getRange(2,12,lastRow-startRow+1,1 );
+  var numRows = range.getNumRows();
+  var daysSinceLastValues = range.getValues();
+   
+  range = sheet.getRange(2, 1, lastRow-startRow+1, 1);
+  var nameValues = range.getValues();
+  
+  var range = sheet.getRange(2,14, lastRow-startRow+1, 1);
+  var emailValues = range.getValues();
+   
+   
+  var msg = "";
+  
+  var randNum = Math.floor((Math.random() * 50) + 1);
+  var q1  = "If you can resist the impulse to claim each and every thought as your own, you will come to a startling conclusion: you will discover that you are the consciousness in which the thoughts appear and disappear. – Annamalai Swami"
+  var q2  = "Be conscious of yourself as consciousness alone, watch all the thoughts come and go. Come to the conclusion, by direct experience, that you are really consciousness itself, not its ephemeral contents. – Annamalai Swami"
+  var q3  = "If you cultivate the attitude of indifference towards the mind, gradually you will cease to identify with it. – Annamalai Swami"
+  var q4  = "Don’t accept delivery of all the wrong ideas that keep coming to you...Rest quietly in the feeling of 'I am', which is consciousness, and cultivate the attitude that all thoughts, all perceptions, are 'not me'. – Annamalai Swami"
+  var q5  = "Mental problems feed on the attention that you give them. The more you worry about them, the stronger they become. If you ignore them, they lose their power and finally vanish. – Annamalai Swami"
+  var q6  = "Don’t worry about whether you are making progress or not. Just keep your attention on the Self twenty-four hours a day. Meditation is not something that should be done in a particular position at a particular time. It is an awareness and an attitude that must persist through the day. – Annamalai Swami"
+  var q7  = "Meditation must be continuous. The current of meditation must be present in all your activities. – Annamalai Swami"
+  var q8  = "If you pay attention to thoughts and feelings while you meditate and try to use them to evaluate how well or how badly you are meditating, you will never reach the ultimate silence. Instead you will just get bogged down in mental concepts. – Annamalai Swami"
+  var q9  = "If you can be continuously aware of each thought as it rises, and if you can be so indifferent to it that it doesn’t sprout or flourish, you are well on the way to escaping from the entanglements of mind. – Annamalai Swami"
+  var q10  = "When you know that everything that is happening is only appearing on the screen of consciousness, and that you yourself are the screen on which it all appears, nothing can touch you, harm you or make you afraid. – Annamalai Swami"
+  var q11  = "Be here now. Be someplace else later. Is that so complicated? – David M. Bader"
+  var q12  = "Meditation is not a way of making your mind quiet. It’s a way of entering into the quiet that’s already there – buried under the 50,000 thoughts the average person thinks every day. – Deepak Chopra"
+  var q13  = "Prayer is when you talk to God; meditation is when you listen to God. – Diana Robinson"
+  var q14  = "Every time you create a gap in the stream of mind, the light of your consciousness grows stronger. One day you may catch yourself smiling at the voice in your head. This means that you no longer take the content of your mind all that seriously, as your sense of self does not depend on it. – Eckhart Tolle"
+  var q15  = "One conscious breathe in and out is a meditation. – Eckhart Tolle"
+  var q16  = "Accepting the reality of change gives rise to equanimity. – Allan Lokos"
+  var q17  = "So what is a good meditator? The one who meditates. – Allan Lokos"
+  var q18  = "While meditating we are simply seeing what the mind has been doing all along. – Allan Lokos"
+  var q19  = "If you want to conquer the anxiety of life, live in the moment, live in the breath. – Amit Ray"
+  var q20  = "Life is a mystery – mystery of beauty, bliss and divinity. Meditation is the art of unfolding that mystery. – Amit Ray"
+  var q21  = "Meditate, Visualize and Create your own reality and the universe will simply reflect back to you. – Amit Ray"
+  var q22  = "Meditation is a way for nourishing and blossoming the divine within you. – Amit Ray4"
+  var q23  = "Self-observation is the first step of inner unfolding. – Amit Ray"
+  var q24  = "Suffering is due to our disconnection with the inner soul. Meditation is establishing that connection – Amit Ray"
+  var q25  = "If it weren’t for my mind, my meditation would be excellent. – Ani Pema Chodron"
+  var q26  = "Meditation practice isn’t about trying to throw ourselves away and become something better, it’s about befriending who we are. – Ani Pema Chodron"
+  var q27  = "Silence is not an absence but a presence. – Anne D. LeClaire"
+  var q28  = "I know but one freedom and that is the freedom of the mind. – Antoine de Saint-Exupery"
+  var q29  = "The word ‘innocence’ means a mind that is incapable of being hurt. – Jiddu Krishnamurti"
+  var q30  = "Meditation is not a means to an end. It is both the means and the end. – Jiddu Krishnamurti"
+  var q31  = "Words are but the shell; meditation is the kernel. – Bahya ibn Paquda"
+  var q32  = "Through meditation, the Higher Self is experienced. – Bhagavad Gita"
+  var q33  = "When meditation is mastered, the mind is unwavering like the flame of a candle in a windless place. – Bhagavad Gita"
+  var q34  = "The you that goes in one side of the meditation experience is not the same you that comes out the other side. – Bhante Henepola Gunaratana"
+  var q35  = "Your worst enemy cannot harm you as much as your own thoughts, unguarded. – Buddha"
+  var q36  = "Meditation brings wisdom; lack of mediation leaves ignorance. Know well what leads you forward and what holds you back, and choose the path that leads to wisdom. – Buddha"
+  var q37  = "Peace comes from within. Do not seek it without. – Buddha"
+  var q38  = "There are two mistakes one can make along the road to truth: not going all the way, and not starting. – Buddha"
+  var q39  = "What we are today comes from our thoughts of yesterday, and our present thoughts build our life of tomorrow. Our life is the creation of our mind. – Buddha"
+  var q40  = "When you realize how perfect everything is, you will tilt your head back and laugh at the sky. – Buddha"
+  var q41  = "You cannot travel on the path until you become the path itself. – Buddha"
+  var q42  = "You will not be punished for your anger, you will be punished by your anger. – Buddha"
+  var q43  = "The soul always knows what to do to heal itself. The challenge is to silence the mind. – Caroline Myss"
+  var q44  = "This is universal. You sit and observe your breath. You can’t say this is a Hindu breath or a Christian breath or a Muslim breath. – Charles Johnson"
+  var q45  = "To earn the trust of your meditation, you have to visit it every day. It’s like having a puppy. – Chelsea Richer"
+  var q46  = "The things that trouble our spirits are within us already. In meditation, we must face them, accept them, and set them aside one by one. – Cristopher L Bennett"
+  var q47  = "Do not let the behavior of others destroy your inner peace. – Dalai Lama"
+  var q48  = "If every 8-year old in the world is taught meditation, we will eliminate violence from the world within one generation. – Dalai Lama"
+  var q49  = "The thing about meditation is that you become more and more YOU. – David Lynch"
+  var q50  = "You don’t need any methods to get rid of the wrong ideas you have about yourself. All you have to do is stop believing them. The best way to do this is to replace them with ideas that more accurately reflect the real state of affairs. – Annamalai Swami"
+  
+
+  
+  var quotes = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,q20,q21,q22,q23,q24,q25,q26,q27,q28,q29,q30,q31,q32,q33,q34,q35,q36,q37,q38,q39,q40,q41,q42,q43,q44,q45,q46,q47,q48,q49,q50,];
+  var quote = quotes[randNum];
+
+  for (var i = 0; i < numRows; i++)
+  {
+    var daysSinceLast = daysSinceLastValues[i][0];
+    if(daysSinceLast == 2 || daysSinceLast == 3 || daysSinceLast == 4 || daysSinceLast == 8 || daysSinceLast == 12 || daysSinceLast == 25 || daysSinceLast == 50)
+    {
+      var name = nameValues[i][0];
+      var email = emailValues[i][0];
+       
+      msg = msg + "Hi "+name+", it's been "+ daysSinceLast +" days since your last meditation session.\n\n "+quote+"\n";
+      MailApp.sendEmail(email,"Be Happy",msg);
+      msg = "";
+    }
+  }
+  
+  
+}

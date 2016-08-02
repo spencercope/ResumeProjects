@@ -1,0 +1,242 @@
+function markNoted()
+{
+    var spreadsheet = SpreadsheetApp.openById("1HIWRV8UBmKUem-R7AsSpzW1acqEajtKlWTFFlM5PkLQ");  
+    var sheet = SpreadsheetApp.setActiveSheet(spreadsheet.getSheets()[0]);                                                               //make active sheet;
+    
+    var lastRow = sheet.getLastRow();                                                                                                   //find last row return int
+    var startRow = 2; 
+  
+    var range = sheet.getRange(2,3,lastRow-startRow+1,1);
+    var numRows = range.getNumRows();
+    var startTimeVals = range.getValues();
+  
+    var range = sheet.getRange(2,4,lastRow-startRow+1,1);
+    var notedVals = range.getValues();
+    
+    var count = 0;
+    var theRowNum = 0;
+    var cellStr = "";
+    
+    for (var i = 0; i < lastRow; i++)
+    {
+      count++
+      var startTime = startTimeVals[i][0];
+      var noted = notedVals[i][0];
+      if (noted == "STOP") {break};
+      if (noted == 0)
+      {
+        if (startTime != 0)
+        {
+          theRowNum = (count + 1);
+          cellStr = "D"+theRowNum+""
+          var cell = sheet.getRange(cellStr)
+          cell.setValue("Noted")
+        }
+      }
+    }
+}
+
+
+function showEm(msg) 
+{
+  var ui = SpreadsheetApp.getUi();                 
+  var result = ui.alert(msg,ui.ButtonSet.OK);
+  // Process the user's response.
+  
+  var response = ui.alert('Click YES to mark as NOTED.',ui.ButtonSet.YES_NO) 
+  if (response == ui.Button.YES) 
+  {
+    markNoted();                                                                                                                      
+  } 
+  else 
+  {
+    Logger.log('The user clicked "No" or the dialog\'s close button.');
+  }
+}
+
+
+function notesToWrite() 
+{
+  var warningCount = 0;
+  var msg = "";
+  
+  var spreadsheet = SpreadsheetApp.openById("1HIWRV8UBmKUem-R7AsSpzW1acqEajtKlWTFFlM5PkLQ");                                          //get this workbook by id    
+  var sheet = SpreadsheetApp.setActiveSheet(spreadsheet.getSheets()[0]);                                                               //make active sheet
+   
+  var lastRow = sheet.getLastRow();                                                                                                   //find last row return int
+  var startRow = 2;                                                                                                                    //start with row 2
+
+  var range6 = sheet.getRange(2,6,lastRow-startRow+1,1);
+  var numRows = range6.getNumRows();
+  var outreachTypeValues = range6.getValues();
+  
+  var range2 = sheet.getRange(2,2,lastRow-startRow+1,1);
+  var dateValues = range2.getValues();
+  
+  var range5 = sheet.getRange(2,5,lastRow-startRow+1,1);
+  var clientNameValues = range5.getValues();
+  
+  var range35 = sheet.getRange(2,35,lastRow-startRow+1,1);
+  var daysBetweenValues = range35.getValues();
+  
+  var range13 = sheet.getRange(2,13,lastRow-startRow+1,1);
+  var homeVisitOutcomeValues = range13.getValues();
+  
+  var range3 = sheet.getRange(2,3,lastRow-startRow+1,1);
+  var startDateTimeValues = range3.getValues();
+  
+  var range27 = sheet.getRange(2,27,lastRow-startRow+1,1);
+  var endDateTimeValues = range27.getValues();
+  
+  var range14 = sheet.getRange(2,14,lastRow-startRow+1,1); 
+  var hospitalPresenceValues = range14.getValues();
+    
+  var range17 = sheet.getRange(2,17,lastRow-startRow+1,1); 
+  var phoneOutcomeValues = range17.getValues();
+  
+  var range29 = sheet.getRange(2,29,lastRow-startRow+1,1); 
+  var employeeNameValues = range29.getValues();
+  
+  var range28 = sheet.getRange(2,28,lastRow-startRow+1,1); 
+  var notesValues = range28.getValues();
+  
+  var range4 = sheet.getRange(2,4,lastRow-startRow+1,1); 
+  var doneValues = range4.getValues();
+  
+  var range = sheet.getRange(2,33,lastRow-startRow+1,1); 
+  var CSSNoteValues = range.getValues();
+
+  var range = sheet.getRange(2,34,lastRow-startRow+1,1); 
+  var depart1Values = range.getValues();
+  
+  var range = sheet.getRange(2,35,lastRow-startRow+1,1); 
+  var arr1Values = range.getValues();
+  
+  var range = sheet.getRange(2,36,lastRow-startRow+1,1); 
+  var depart2Values = range.getValues();
+  
+  var range = sheet.getRange(2,37,lastRow-startRow+1,1); 
+  var arr2Values = range.getValues();
+  
+  for (var i = 0; i < numRows; i++)                                                                                                                                     // Loop over the days left values
+  {
+    var employeeName = employeeNameValues[i][0];
+    var done = doneValues[i][0];
+    
+    if (done == 0)
+    {
+      var clientName = clientNameValues[i][0];
+      var date = dateValues[i][0];
+      var note = notesValues[i][0];
+      var startDateTime = startDateTimeValues[i][0];
+      var startTime = Utilities.formatDate(new Date(), "America/Los_Angeles", "HH:mm")
+      var endDateTime = endDateTimeValues[i][0];
+      var endTime = Utilities.formatDate(new Date(),"America/Los_Angeles", "HH:mm");
+      var outreachType = outreachTypeValues[i][0];
+            
+      if(outreachType == "Home Visit")                                                                                                                                     //home visit
+      {
+        msg += ""+clientName+"***NewNote***"+Utilities.formatDate(date, "American/Los_Angeles", "MM/dd/yyyy")+"***  D:  Writer attempted "+outreachType+" of most recent address on file for outreach purposes.  ";
+        
+        var homeVisitOutcome = homeVisitOutcomeValues[i][0];
+        if (homeVisitOutcome == "No answer, left packet")
+        {
+          msg += "Knocked on the door but there was no answer; left packet with personal note for Clt.  "
+          msg += "A:  Clt not present.  P:  Disease Management to continue with outreach process.\n";
+        }
+        else if (homeVisitOutcome == "Spoke with Client") 
+        { 
+          msg += "Writer then spoke with Clt regarding the dm program, focusing on how the program may benefit Clt. Clt shared \n";
+          msg += "A:  Clt appeared\nP:  Writer to \n";
+        }
+        else if (homeVisitOutcome == "Family member or friend answered the door")
+        {
+          msg += "Knocked on the door and a woman/man answered the door.  Writer gave brief explanation of dm program  ";
+          msg += "and left packet with personal note for Clt.  ";
+          msg += "A:  Clt not present.  P:  Disease Management to continue with outreach process.\n";
+        }
+        else if (homeVisitOutcome == "Wrong address")
+        {
+          msg += "Writer knocked on the door and the door was answered.  It was reported to Writer that this was not the correct address for Clt.  "
+          msg += "A:  Clt not present.  P:  Writer to update list and Disease Management to continue with outreach process.\n";
+        }
+        msg += ""+note+"\n\n";
+      }
+      else if(outreachType == "Hospital Visit")                                                                                                                          //hospital visit
+      {
+        msg += ""+clientName+"***NewNote***"+Utilities.formatDate(date, "American/Los_Angeles", "MM/dd/yyyy")+"***  D:  Writer attempted to visit Clt at the hospital. ";
+        var hospitalPresence = hospitalPresenceValues[i][0];
+        if (hospitalPresence == "Spoke with Clt")
+        {
+          msg += "Clt was present. Writer spoke with Clt regarding the dm program, focusing on how the program could benefit Clt. Clt stated \n"
+          msg += "A:  Clt appeared\n  P:  Disease Management to continue with outreach process.\n"+note+"";
+        }
+        else if(hospitalPresence == "Clt was not present")
+        {
+          msg += "Clt was not present.  Staff stated that Clt d/c earlier today.  "
+          msg += "A:  Clt not present.  P:  Disease Management to continue with outreach process.\n"+note+"";
+        }
+      }
+      else if(outreachType == "Phone Call")                                                                                                                              //phone call
+      {
+        var phoneOutcome = phoneOutcomeValues[i][0];
+        msg += ""+clientName+"***NewNote***"+Utilities.formatDate(date, "American/Los_Angeles", "MM/dd/yyyy")+"***  D:  Writer attempted phone call using most recent phone number on file for Clt. ";
+        if (phoneOutcome == "Clt answered")
+        {
+          msg += "Writer spoke with Clt regarding the dm program and how clt can benefit from dm services.  Clt stated \n";
+          msg += "A:  Clt not present\nP:  Writer to \n";
+        }
+        else if(phoneOutcome == "No answer, left voicemail")
+        {
+          msg += "Clt contacted most recent number on file for Clt.";
+          msg += "There was no answer; Writer left voicemail for Clt requesting a call back.";
+          msg += "A:  Clt not present.  P:  Disease Management to continue with outreach process.\n";
+        }
+        msg += ""+note+"\n\n";
+      }
+      else if(outreachType == "Just a Note")                                                                                                                              //just a note
+      {
+        msg += ""+clientName+"***NewNote***"+Utilities.formatDate(date, "American/Los_Angeles", "MM/dd/yyyy")+"***  D: Writer  \n";
+        msg += "A:  Clt appeared\n  P:  Disease Management to continue with outreach process.\n"+note+"";
+      }
+      else if(outreachType == "CSS")
+      {
+        var CSSNote = CSSNoteValues[i][0];
+        var depart1 = depart1Values[i][0];
+        var depart1Formatted = Utilities.formatDate(depart1, "America/Los_Angeles", "HH:mm");
+        var arr1 = arr1Values[i][0];
+        var arr1Formatted = Utilities.formatDate(arr1, "America/Los_Angeles", "HH:mm");
+        var depart2 = depart2Values[i][0];
+        var depart2Formatted = Utilities.formatDate(depart2, "America/Los_Angeles", "HH:mm");
+        var arr2 = arr2Values[i][0];
+        var arr2Formatted = Utilities.formatDate(arr2, "America/Los_Angeles", "HH:mm");
+        
+        msg += ""+clientName+"**NewNote**"+Utilities.formatDate(date, "American/Los_Angeles", "MM/dd/yyyy")+"**"+startTime+"**"+endTime+"**"
+        msg += ""+CSSNote+"";
+        msg += "\nTRAVEL TIME: "+depart1Formatted+" - "+arr1Formatted+"  AND  "+depart2Formatted+" - "+arr2Formatted+""
+      }
+      
+      msg += "\n\n"
+      
+    }
+  }
+
+  if (warningCount < 1)
+  {
+    warningCount++;
+    //Logger.log(msg);
+    showEm(msg);
+  }
+
+}
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  

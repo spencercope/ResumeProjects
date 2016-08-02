@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1461007650 source:c:\users\spencer\documents\coding\codeblocks\proj4\src\dyncharstack.cpp
+	<iostream>
+	"DynCharStack.h"
+
+1461019004 c:\users\spencer\documents\coding\codeblocks\proj4\include\dyncharstack.h
+
+1461020544 source:c:\users\spencer\documents\coding\codeblocks\proj4\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<stack>
+	"DynCharStack.h"
+

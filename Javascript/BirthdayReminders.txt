@@ -1,0 +1,87 @@
+function checkBirthday() 
+{  
+  var warningCount = 0;
+  var warningCountMom = 0;
+  var msg = "";
+  var msgMom = "";
+
+
+  var spreadsheet = SpreadsheetApp.openById("SHEET ID HERE");              
+  var sheet = SpreadsheetApp.setActiveSheet(spreadsheet.getSheets()[0]);
+  
+  var lastRow = sheet.getLastRow();
+  var startRow = 2;
+ 
+  var range = sheet.getRange(2,5,lastRow-startRow+1,1 );
+  var numRows = range.getNumRows();
+  var daysLeftValues = range.getValues();
+   
+  range = sheet.getRange(2, 1, lastRow-startRow+1, 1);
+  var nameValues = range.getValues();
+
+  range = sheet.getRange(2, 6, lastRow-startRow+1, 1);
+  var ageValues = range.getValues();
+  
+  range = sheet.getRange(2, 7, lastRow-startRow+1, 1);
+  var ownerValues = range.getValues();
+
+   
+  for (var i = 0; i < numRows; i++) 
+  {
+    var daysLeft = daysLeftValues[i][0];
+    var age = ageValues[i][0]
+    var owner = ownerValues[i][0];
+    var name = nameValues[i][0];
+
+    if(daysLeft == 10 && owner == "Spencer")                                                //Spencer
+    {
+      warningCount++;
+      msg += "Reminder: "+name+"'s birthday is in "+daysLeft+" days.  ";
+      msg += "He/She will be turning "+(1+age)+".\n";
+    }
+    else if(daysLeft == 1 && owner == "Mom" || daysLeft == 7 && owner == "Mom")                                                //Mom
+    {
+      warningCountMom++;
+      if (daysLeft == 1)
+      {
+        if(age > 110)
+        {
+          msgMom += "Reminder:  "+name+"'s birthday is tomorrow, but we do not know his/her age.\n";
+        }
+        else
+        {
+          msgMom += "Reminder:  "+name+" is turning "+(1+age)+" tomorrow!\n";;
+        }
+      }
+      if (daysLeft == 7)
+      {
+        if(age > 110)
+        {
+          msgMom += "Reminder:  "+name+"'s birthday is in one week, but we do not know his/her age.\n";
+        }
+        else
+        {
+          msgMom += "Reminder:  "+name+" will be turning "+(1+age)+" in one week.\n";
+          //Logger.log(warningCountMom);
+        }
+      }
+    }
+  }
+  
+  if(warningCount > 0) 
+  {
+    warningCount++;
+    //Logger.log(msg);
+    MailApp.sendEmail("EMAIL HERE","Upcoming Birthdays", msg);
+  }
+  
+  
+  if(warningCountMom > 0)    
+  {
+    warningCountMom++;
+    //Logger.log(msgMom);
+    MailApp.sendEmail("EMAIL HERE","Tomorrow's Birthdays", msgMom)        
+  }
+  
+   
+};

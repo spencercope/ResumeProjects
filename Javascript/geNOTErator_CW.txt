@@ -1,0 +1,2290 @@
+function showEm(msg) 
+{
+  var ui = SpreadsheetApp.getUi(); // Same variations.
+  var result = ui.alert(msg,ui.ButtonSet.OK);
+}
+
+
+function makeEm()
+{
+  var warningCount = 0;
+  var msg = "";
+  
+  var spreadsheet = SpreadsheetApp.openById("1pmpr4fXej1Bn_fxsATgRVMQFN0CSJwEsCsyrj8Yx5BA");                  //get this workbook by id    
+  var sheet = SpreadsheetApp.setActiveSheet(spreadsheet.getSheets()[0]);                                       //make active sheet
+   
+  var lastRow = sheet.getLastRow();                                                                          //find last row return int
+  var startRow = 2;                                                                                          //start with row 2
+
+  var range = sheet.getRange(2,1,lastRow-startRow+1,1);
+  var numRows = range.getNumRows();
+  var dateValues = range.getValues();
+  
+  var range = sheet.getRange(2,2,lastRow-startRow+1,1);
+  var typeOfNoteValues = range.getValues();
+  
+  var range = sheet.getRange(2,3,lastRow-startRow+1,1);
+  var PMealValues = range.getValues();
+  
+  var range = sheet.getRange(2,4,lastRow-startRow+1,1);
+  var PNotesOnSPValues = range.getValues();
+    
+  var range = sheet.getRange(2,5,lastRow-startRow+1,1);
+  var PIntentionValues = range.getValues();
+  
+  var range = sheet.getRange(2,6,lastRow-startRow+1,1);
+  var PBURestrictionValues = range.getValues();
+  
+  var range = sheet.getRange(2,7,lastRow-startRow+1,1);
+  var PBUExerciseValues = range.getValues();
+  
+  var range = sheet.getRange(2,8,lastRow-startRow+1,1);
+  var PBUPurgeValues = range.getValues();
+  
+  var range = sheet.getRange(2,9,lastRow-startRow+1,1);
+  var PBUIsolationValues = range.getValues();
+  
+  var range = sheet.getRange(2,10,lastRow-startRow+1,1);
+  var PBUBingeValues = range.getValues();
+  
+  var range = sheet.getRange(2,11,lastRow-startRow+1,1);
+  var PBUMovementValues = range.getValues();
+  
+  var range = sheet.getRange(2,12,lastRow-startRow+1,1);
+  var PBUCompensatoryValues = range.getValues();
+  
+  var range = sheet.getRange(2,13,lastRow-startRow+1,1);
+  var PBUSelfHarmValues = range.getValues();
+  
+  var range = sheet.getRange(2,14,lastRow-startRow+1,1);
+  var PBUBodyCheckingValues = range.getValues();
+  
+  var range = sheet.getRange(2,15,lastRow-startRow+1,1);
+  var PAURestrictionValues = range.getValues();
+  
+  var range = sheet.getRange(2,16,lastRow-startRow+1,1);
+  var PAUExerciseValues = range.getValues();
+  
+  var range = sheet.getRange(2,17,lastRow-startRow+1,1);
+  var PAUPurgeValues = range.getValues();
+  
+  var range = sheet.getRange(2,18,lastRow-startRow+1,1);
+  var PAUIsolationValues = range.getValues();
+  
+  var range = sheet.getRange(2,19,lastRow-startRow+1,1);
+  var PAUBingeValues = range.getValues();
+  
+  var range = sheet.getRange(2,20,lastRow-startRow+1,1);
+  var PAUMovementValues = range.getValues();
+  
+  var range = sheet.getRange(2,21,lastRow-startRow+1,1);
+  var PAUCompensatoryValues = range.getValues();
+  
+  var range = sheet.getRange(2,22,lastRow-startRow+1,1);
+  var PAUSelfHarmValues = range.getValues();
+  
+  var range = sheet.getRange(2,23,lastRow-startRow+1,1);
+  var PAUBodyCheckingValues = range.getValues();
+  
+  var range = sheet.getRange(2,24,lastRow-startRow+1,1);
+  var POtherUrgesValues = range.getValues();
+  
+  var range = sheet.getRange(2,25,lastRow-startRow+1,1);
+  var PManageUrgeValues = range.getValues();
+  
+  var range = sheet.getRange(2,26,lastRow-startRow+1,1);
+  var PRitualsValues = range.getValues();
+  
+  var range = sheet.getRange(2,27,lastRow-startRow+1,1);
+  var PRitualsChallengedValues = range.getValues();
+  
+  var range = sheet.getRange(2,28,lastRow-startRow+1,1);
+  var PEDThoughtsValues = range.getValues();
+  
+  var range = sheet.getRange(2,29,lastRow-startRow+1,1);
+  var PEDCountersValues = range.getValues();
+  
+  var range = sheet.getRange(2,30,lastRow-startRow+1,1);
+  var PRecoveryThoughtsValues = range.getValues();
+
+  var range = sheet.getRange(2,31,lastRow-startRow+1,1);
+  var PFeelingsValues = range.getValues();
+  
+  var range = sheet.getRange(2,32,lastRow-startRow+1,1);
+  var PDurationValues = range.getValues();
+  
+  var range = sheet.getRange(2,33,lastRow-startRow+1,1);
+  var PCompliedValues = range.getValues()
+  
+  var range = sheet.getRange(2,34,lastRow-startRow+1,1);
+  var PSuppPercentageValues = range.getValues()
+  
+  var range = sheet.getRange(2,35,lastRow-startRow+1,1);
+  var PCompletedSuppValues = range.getValues()
+  
+  var range = sheet.getRange(2,36,lastRow-startRow+1,1);
+  var BnotesOnSPValues = range.getValues()
+  
+  var range = sheet.getRange(2,37,lastRow-startRow+1,1);
+  var BIntentionValues = range.getValues()
+  
+  var range = sheet.getRange(2,38,lastRow-startRow+1,1);
+  var BCltAppearedValues = range.getValues()
+  
+  var range = sheet.getRange(2,39,lastRow-startRow+1,1);
+  var BEvidenceValues = range.getValues()
+  
+  var range = sheet.getRange(2,40,lastRow-startRow+1,1);
+  var BBURestrictionValues = range.getValues()
+  
+  var range = sheet.getRange(2,41,lastRow-startRow+1,1);
+  var BBUExerciseValues = range.getValues()
+  
+  var range = sheet.getRange(2,42,lastRow-startRow+1,1);
+  var BBUPurgeValues = range.getValues()
+  
+  var range = sheet.getRange(2,43,lastRow-startRow+1,1);
+  var BBUIsolationValues = range.getValues()
+  
+  var range = sheet.getRange(2,44,lastRow-startRow+1,1);
+  var BBUBingeValues = range.getValues()
+  
+  var range = sheet.getRange(2,45,lastRow-startRow+1,1);
+  var BBUMovementValues = range.getValues()
+  
+  var range = sheet.getRange(2,46,lastRow-startRow+1,1);
+  var BBUCompensatoryValues = range.getValues()
+  
+  var range = sheet.getRange(2,47,lastRow-startRow+1,1);
+  var BBUSelfHarmValues = range.getValues()
+  
+  var range = sheet.getRange(2,48,lastRow-startRow+1,1);
+  var BBUBodyCheckingValues = range.getValues()
+  
+  var range = sheet.getRange(2,49,lastRow-startRow+1,1);
+  var BAURestrictionValues = range.getValues()
+  
+  var range = sheet.getRange(2,50,lastRow-startRow+1,1);
+  var BAUExerciseValues = range.getValues()
+  
+  var range = sheet.getRange(2,51,lastRow-startRow+1,1);
+  var BAUPurgeValues = range.getValues()
+  
+  var range = sheet.getRange(2,52,lastRow-startRow+1,1);
+  var BAUIsolationValues = range.getValues()
+  
+  var range = sheet.getRange(2,53,lastRow-startRow+1,1);
+  var BAUBingeValues = range.getValues()
+  
+  var range = sheet.getRange(2,54,lastRow-startRow+1,1);
+  var BAUMovementValues = range.getValues()
+  
+  var range = sheet.getRange(2,55,lastRow-startRow+1,1);
+  var BAUCompensatoryValues = range.getValues()
+  
+  var range = sheet.getRange(2,56,lastRow-startRow+1,1);
+  var BAUSelfHarmValues = range.getValues()
+  
+  var range = sheet.getRange(2,57,lastRow-startRow+1,1);
+  var BAUBodyCheckingValues = range.getValues()
+  
+  var range = sheet.getRange(2,58,lastRow-startRow+1,1);
+  var BOtherUrgesValues = range.getValues()
+  
+  var range = sheet.getRange(2,59,lastRow-startRow+1,1);
+  var BManageUrgeValues = range.getValues()
+  
+  var range = sheet.getRange(2,60,lastRow-startRow+1,1);
+  var BRitualsValues = range.getValues()
+  
+  var range = sheet.getRange(2,61,lastRow-startRow+1,1);
+  var BRedirectComplianceValues = range.getValues()
+  
+  var range = sheet.getRange(2,62,lastRow-startRow+1,1);
+  var BEDThoughtsValues = range.getValues()
+  
+  var range = sheet.getRange(2,63,lastRow-startRow+1,1);
+  var BEDCountersValues = range.getValues()
+  
+  var range = sheet.getRange(2,64,lastRow-startRow+1,1);
+  var BRecoveryThoughtsValues = range.getValues()
+  
+  var range = sheet.getRange(2,65,lastRow-startRow+1,1);
+  var BFeelingsValues = range.getValues()
+  
+  var range = sheet.getRange(2,66,lastRow-startRow+1,1);
+  var BDurationValues = range.getValues()
+  
+  var range = sheet.getRange(2,67,lastRow-startRow+1,1);
+  var BCompliedValues = range.getValues()
+  
+  var range = sheet.getRange(2,68,lastRow-startRow+1,1);
+  var BSuppPercentageValues = range.getValues()
+  
+  var range = sheet.getRange(2,69,lastRow-startRow+1,1);
+  var BCompletedSuppValues = range.getValues()
+ 
+  var ritualString = "How were rituals challenged?";
+  
+  var msg = "";
+  
+  for (var i = 0; i < numRows; i++)                                                                                                                                     // Loop over the days left values
+  {
+    var typeOfNote = typeOfNoteValues[i][0];
+    var theDate = dateValues[i][0];
+    
+    if (typeOfNote == "Peer")                                     // PEER NOTE
+    {
+      var PMeal = PMealValues[i][0];
+      var PNotesOnSP = PNotesOnSPValues[i][0];
+      var PIntention = PIntentionValues[i][0];
+      var PBURestriction = PBURestrictionValues[i][0];
+      var PBUExercise = PBUExerciseValues[i][0];
+      var PBUPurge = PBUPurgeValues[i][0];
+      var PBUIsolation = PBUIsolationValues[i][0];
+      var PBUBinge = PBUBingeValues[i][0];
+      var PBUMovement = PBUMovementValues[i][0];
+      var PBUCompensatory = PBUCompensatoryValues[i][0];
+      var PBUSelfHarm = PBUSelfHarmValues[i][0];
+      var PBUBodyChecking = PBUBodyCheckingValues[i][0];
+      var PAURestriction = PAURestrictionValues[i][0];
+      var PAUExercise = PAUExerciseValues[i][0];
+      var PAUPurge = PAUPurgeValues[i][0];
+      var PAUIsolation = PAUIsolationValues[i][0];
+      var PAUBinge = PAUBingeValues[i][0];
+      var PAUMovement = PAUMovementValues[i][0];
+      var PAUCompensatory = PAUCompensatoryValues[i][0];
+      var PAUSelfHarm = PAUSelfHarmValues[i][0];
+      var PAUBodyChecking = PAUBodyCheckingValues[i][0];
+      var POtherUrges = POtherUrgesValues[i][0];
+      var PManageUrges = PManageUrgeValues[i][0];
+      var PRituals = PRitualsValues[i][0];
+      var PRitualsChallenged = PRitualsChallengedValues[i][0];
+      var PEDThoughts = PEDThoughtsValues[i][0];
+      var PEDCounters = PEDCountersValues[i][0];
+      var PRecoveryThoughts = PRecoveryThoughtsValues[i][0];
+      var PFeelings = PFeelingsValues[i][0];
+      var PDuration = PDurationValues[i][0];
+      var PComplied = PCompliedValues[i][0];
+      var PSuppPercentage = PSuppPercentageValues[i][0];
+      var PCompletedSupp = PCompletedSuppValues[i][0];
+    
+      msg += "\n\n"+PMeal+"_"+Utilities.formatDate(theDate, "America/Mexico_City", "MM/dd/yyyy")+"_";
+      msg += "Client ate meal at a peer support table in order to practice self-accountability with meal plan and self-management of urges. Client completed an ED diary card in order to share struggles with staff and utilize staff support after the meal.  "; 
+      if (PNotesOnSP == 0) 
+      {
+        msg += "  Client did not self-portion their meal.  "; 
+      }
+      else
+      {
+        msg += "  Client did self-portion their meal.  Client noted, \""+PNotesOnSP+"\" in regards to self-portioning their meal.  ";
+      }
+      
+      if (PIntention == 0)
+      {
+        msg += "Client did not report any intentions.  ";
+      }
+      else
+      {
+        msg += "  Client noted their intention for the meal as, \""+PIntention+"\".  ";
+      }
+      
+      
+      
+      var PBULowStack = []                                  //BEFORE URGES
+      var PBUModStack = []
+      var PBUHighStack = []
+      var PBUdnsStack = []      
+      
+      if (PBURestriction == "low")                         //push Restriction
+      {
+        PBULowStack.push(" restriction")           
+      }
+      else if (PBURestriction == "mod")
+      {
+        PBUModStack.push(" restriction")           
+      }
+      else if (PBURestriction == "high")
+      {
+        PBUHighStack.push(" restriction")           
+      }
+      else if (PBURestriction == "dns")
+      {
+        PBUdnsStack.push(" restriction")           
+      }
+      
+      if (PBUExercise == "low")                          //push Exercise
+      {
+        PBULowStack.push(" exercise")
+      }
+      else if (PBUExercise == "mod")
+      {
+        PBUModStack.push(" exercise")           
+      }
+      else if (PBUExercise == "high")
+      {
+        PBUHighStack.push(" exercise")           
+      }
+      else if (PBUExercise == "dns")
+      {
+        PBUdnsStack.push(" exercise")           
+      }
+      
+      if (PBUPurge == "low")                          //push Purge
+      {
+        PBULowStack.push(" purge")
+      }
+      else if (PBUPurge == "mod")
+      {
+        PBUModStack.push(" purge")           
+      }
+      else if (PBUPurge == "high")
+      {
+        PBUHighStack.push(" purge")           
+      }
+      else if (PBUPurge == "dns")
+      {
+        PBUdnsStack.push(" purge")           
+      }
+      
+      if (PBUIsolation == "low")                          //push Isolation
+      {
+        PBULowStack.push(" isolation")
+      }
+      else if (PBUIsolation == "mod")
+      {
+        PBUModStack.push(" isolation")           
+      }
+      else if (PBUIsolation == "high")
+      {
+        PBUHighStack.push(" isolation")           
+      }
+      else if (PBUIsolation == "dns")
+      {
+        PBUdnsStack.push(" isolation")           
+      }
+
+      if (PBUBinge == "low")                          //push Binge
+      {
+        PBULowStack.push(" binge")
+      }
+      else if (PBUBinge == "mod")
+      {
+        PBUModStack.push(" binge")           
+      }
+      else if (PBUBinge == "high")
+      {
+        PBUHighStack.push(" binge")           
+      }
+      else if (PBUBinge == "dns")
+      {
+        PBUdnsStack.push(" binge")           
+      }
+
+      if (PBUMovement == "low")                          //push Movement
+      {
+        PBULowStack.push(" movement")
+      }
+      else if (PBUMovement == "mod")
+      {
+        PBUModStack.push(" movement")           
+      }
+      else if (PBUMovement == "high")
+      {
+        PBUHighStack.push(" movement")           
+      }
+      else if (PBUMovement == "dns")
+      {
+        PBUdnsStack.push(" movement")           
+      }
+      
+      if (PBUCompensatory == "low")                          //push Compensatory
+      {
+        PBULowStack.push(" compensatory")
+      }
+      else if (PBUCompensatory == "mod")
+      {
+        PBUModStack.push(" compensatory")           
+      }
+      else if (PBUCompensatory == "high")
+      {
+        PBUHighStack.push(" compensatory")           
+      }
+      else if (PBUCompensatory == "dns")
+      {
+        PBUdnsStack.push(" compensatory")           
+      }
+      
+      if (PBUSelfHarm == "low")                          //push Self-harm
+      {
+        PBULowStack.push(" self-harm")
+      }
+      else if (PBUSelfHarm == "mod")
+      {
+        PBUModStack.push(" self-harm")           
+      }
+      else if (PBUSelfHarm == "high")
+      {
+        PBUHighStack.push(" self-harm")           
+      }
+      else if (PBUSelfHarm == "dns")
+      {
+        PBUdnsStack.push(" self-harm")           
+      }
+
+      if (PBUBodyChecking == "low")                          //push BodyChecking
+      {
+        PBULowStack.push(" body checking")
+      }
+      else if (PBUBodyChecking == "mod")
+      {
+        PBUModStack.push(" body checking")           
+      }
+      else if (PBUBodyChecking == "high")
+      {
+        PBUHighStack.push(" body checking")           
+      }
+      else if (PBUBodyChecking == "dns")
+      {
+        PBUdnsStack.push(" body checking")           
+      }
+
+      
+      if(PBULowStack == 0 && PBUModStack == 0 && PBUHighStack == 0 && PBUdnsStack == 0)  //1                                       //start of the urges
+      {
+        msg += "Clt reported no urges before the meal.  "
+      }
+      else if(PBULowStack == 0 && PBUModStack == 0 && PBUHighStack == 0 && PBUdnsStack != 0)  //2
+      {
+        if (PBUdnsStack.length == 1)
+        {
+          var dnsWord = PBUdnsStack[0];
+          var fLetter = dnsWord.charAt(1);
+          if (fLetter == 'e' || fLetter == 'i')
+          {
+            msg += "Clt reported experiencing an"+PBUdnsStack+" urge before the meal.  "
+          }
+          else
+          {
+            msg += "Clt reported experiencing a"+PBUdnsStack+" urge before the meal.  "
+          }
+        }
+        else if (PBUdnsStack.length == 2)
+        {
+          msg += "Clt reported "+PBUdnsStack[0]+" and"+PBUdnsStack[1]+" urges before the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported "+PBUdnsStack[0];
+          for (var i = 1; i < PBUdnsStack.length; i++)
+          {
+            msg += ","+PBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+        }
+      }
+      else if(PBULowStack == 0 && PBUModStack == 0 && PBUHighStack != 0 && PBUdnsStack == 0)  //3
+      {
+        if (PBUHighStack.length == 1)
+        {
+          msg += "Clt reported experiencing a high"+PBUHighStack+" urge before the meal.  "
+        }
+        else if (PBUHighStack.length == 2)
+        {
+          msg += "Clt reported high"+PBUHighStack[0]+" and"+PBUHighStack[1]+" urges before the meal.  "
+        }
+        else 
+        {        
+          msg += "Clt reported high "+PBUHighStack[0];
+          for (var i = 1; i < PBUHighStack.length; i++)
+          {
+            msg += ","+PBUHighStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+        }
+      }
+      else if(PBULowStack == 0 && PBUModStack == 0 && PBUHighStack != 0 && PBUdnsStack != 0)  //4
+      {
+          msg += "Clt reported high "+PBUHighStack[0];
+          for (var i = 1; i < PBUHighStack.length; i++)
+          {
+            msg += ","+PBUHighStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+PBUdnsStack[0]+"";
+          for (var i = 1; i < PBUdnsStack.length; i++)
+          {
+            msg += ","+PBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack == 0 && PBUModStack != 0 && PBUHighStack == 0 && PBUdnsStack == 0)  //5
+      { 
+        if (PBUModStack.length == 1)
+        {
+          msg += "Clt reported experiencing a moderate"+PBUModStack+" urge before the meal.  "
+        }
+        else if (PBUModStack.length == 2)
+        {
+          msg += "Clt reported moderate"+PBUModStack[0]+" and"+PBUModStack[1]+" urges before the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported moderate "+PBUModStack[0];
+          for (var i = 1; i < PBUModStack.length; i++)
+          {
+            msg += ","+PBUModStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+        }
+      }
+      else if(PBULowStack == 0 && PBUModStack != 0 && PBUHighStack == 0 && PBUdnsStack != 0)  //6
+      {
+          msg += "Clt reported moderate "+PBUModStack[0];
+          for (var i = 1; i < PBUModStack.length; i++)
+          {
+            msg += ","+PBUModStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+PBUdnsStack[0]+"";
+          for (var i = 1; i < PBUdnsStack.length; i++)
+          {
+            msg += ","+PBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack == 0 && PBUModStack != 0 && PBUHighStack != 0 && PBUdnsStack == 0)  //7
+      {
+          msg += "Clt reported moderate "+PBUModStack[0];
+          for (var i = 1; i < PBUModStack.length; i++)
+          {
+            msg += ","+PBUModStack[i]+"";
+          }
+          msg += " urges and high"
+          msg += ""+PBUHighStack[0]+"";
+          for (var i = 1; i < PBUHighStack.length; i++)
+          {
+            msg += ","+PBUHighStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack == 0 && PBUModStack != 0 && PBUHighStack != 0 && PBUdnsStack != 0)  //8
+      {
+          msg += "Clt reported moderate "+PBUModStack[0];
+          for (var i = 1; i < PBUModStack.length; i++)
+          {
+            msg += ","+PBUModStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+PBUHighStack[0]+"";
+          for (var i = 1; i < PBUHighStack.length; i++)
+          {
+            msg += ","+PBUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+PBUdnsStack[0]+"";
+          for (var i = 1; i < PBUdnsStack.length; i++)
+          {
+            msg += ","+PBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack != 0 && PBUModStack == 0 && PBUHighStack == 0 && PBUdnsStack == 0)  //9
+      {
+        if (PBULowStack.length == 1)
+        {
+          msg += "Clt reported experiencing a low"+PBULowStack+" urge before the meal.  "
+        }
+        else if (PBULowStack.length == 2)
+        {
+          msg += "Clt reported low"+PBULowStack[0]+" and"+PBULowStack[1]+" urges before the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported low "+PBULowStack[0];
+          for (var i = 1; i < PBULowStack.length; i++)
+          {
+            msg += ","+PBULowStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+        }
+      }
+      else if(PBULowStack != 0 && PBUModStack == 0 && PBUHighStack == 0 && PBUdnsStack != 0)  //10
+      {
+          msg += "Clt reported low "+PBULowStack[0];
+          for (var i = 1; i < PBULowStack.length; i++)
+          {
+            msg += ","+PBULowStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+PBUdnsStack[0]+"";
+          for (var i = 1; i < PBUdnsStack.length; i++)
+          {
+            msg += ","+PBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack != 0 && PBUModStack == 0 && PBUHighStack != 0 && PBUdnsStack == 0)  //11
+      {
+          msg += "Clt reported low "+PBULowStack[0];
+          for (var i = 1; i < PBULowStack.length; i++)
+          {
+            msg += ","+PBULowStack[i]+"";
+          }
+          msg += " urges and high"
+          msg += ""+PBUHighStack[0]+"";
+          for (var i = 1; i < PBUHighStack.length; i++)
+          {
+            msg += ","+PBUHighStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack != 0 && PBUModStack == 0 && PBUHighStack != 0 && PBUdnsStack != 0)  //12
+      {
+          msg += "Clt reported low "+PBULowStack[0];
+          for (var i = 1; i < PBULowStack.length; i++)
+          {
+            msg += ","+PBULowStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+PBUHighStack[0]+"";
+          for (var i = 1; i < PBUHighStack.length; i++)
+          {
+            msg += ","+PBUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+PBUdnsStack[0]+"";
+          for (var i = 1; i < PBUdnsStack.length; i++)
+          {
+            msg += ","+PBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack != 0 && PBUModStack != 0 && PBUHighStack == 0 && PBUdnsStack == 0)  //13
+      {
+          msg += "Clt reported low "+PBULowStack[0];
+          for (var i = 1; i < PBULowStack.length; i++)
+          {
+            msg += ","+PBULowStack[i]+"";
+          }
+          msg += " urges and moderate"
+          msg += ""+PBUModStack[0]+"";
+          for (var i = 1; i < PBUModStack.length; i++)
+          {
+            msg += ","+PBUModStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack != 0 && PBUModStack != 0 && PBUHighStack == 0 && PBUdnsStack != 0)  //14
+      {
+          msg += "Clt reported low "+PBULowStack[0];
+          for (var i = 1; i < PBULowStack.length; i++)
+          {
+            msg += ","+PBULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+PBUModStack[0]+"";
+          for (var i = 1; i < PBUModStack.length; i++)
+          {
+            msg += ","+PBUModStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+PBUdnsStack[0]+"";
+          for (var i = 1; i < PBUdnsStack.length; i++)
+          {
+            msg += ","+PBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack!= 0 && PBUModStack != 0 && PBUHighStack != 0 && PBUdnsStack == 0)  //15
+      {
+          msg += "Clt reported low "+PBULowStack[0];
+          for (var i = 1; i < PBULowStack.length; i++)
+          {
+            msg += ","+PBULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+PBUModStack[0]+"";
+          for (var i = 1; i < PBUModStack.length; i++)
+          {
+            msg += ","+PBUModStack[i]+"";
+          }
+          msg += " urges, and high"
+          msg += ""+PBUHighStack[0]+"";
+          for (var i = 1; i < PBUHighStack.length; i++)
+          {
+            msg += ","+PBUHighStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(PBULowStack != 0 && PBUModStack != 0 && PBUHighStack != 0 && PBUdnsStack != 0)  //16
+      {
+          msg += "Clt reported low "+PBULowStack[0];
+          for (var i = 1; i < PBULowStack.length; i++)
+          {
+            msg += ","+PBULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+PBUModStack[0]+"";
+          for (var i = 1; i < PBUModStack.length; i++)
+          {
+            msg += ","+PBUModStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+PBUHighStack[0]+"";
+          for (var i = 1; i < PBUHighStack.length; i++)
+          {
+            msg += ","+PBUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+PBUdnsStack[0]+"";
+          for (var i = 1; i < PBUdnsStack.length; i++)
+          {
+            msg += ","+PBUdnsStack[i]+"";
+          }
+          
+          msg += " urges before the meal.  "
+      }
+
+      
+      var PAULowStack = []                                        //AFTER URGES
+      var PAUModStack = []
+      var PAUHighStack = []
+      var PAUdnsStack = []      
+      
+      if (PAURestriction == "low")                         //push Restriction
+      {
+        PAULowStack.push(" restriction")           
+      }
+      else if (PAURestriction == "mod")
+      {
+        PAUModStack.push(" restriction")           
+      }
+      else if (PAURestriction == "high")
+      {
+        PAUHighStack.push(" restriction")           
+      }
+      else if (PAURestriction == "dns")
+      {
+        PAUdnsStack.push(" restriction")           
+      }
+      
+      if (PAUExercise == "low")                          //push Exercise
+      {
+        PAULowStack.push(" exercise")
+      }
+      else if (PAUExercise == "mod")
+      {
+        PAUModStack.push(" exercise")           
+      }
+      else if (PAUExercise == "high")
+      {
+        PAUHighStack.push(" exercise")           
+      }
+      else if (PAUExercise == "dns")
+      {
+        PAUdnsStack.push(" exercise")           
+      }
+      
+      if (PAUPurge == "low")                          //push Purge
+      {
+        PAULowStack.push(" purge")
+      }
+      else if (PAUPurge == "mod")
+      {
+        PAUModStack.push(" purge")           
+      }
+      else if (PAUPurge == "high")
+      {
+        PAUHighStack.push(" purge")           
+      }
+      else if (PAUPurge == "dns")
+      {
+        PAUdnsStack.push(" purge")           
+      }
+      
+      if (PAUIsolation == "low")                          //push Isolation
+      {
+        PAULowStack.push(" isolation")
+      }
+      else if (PAUIsolation == "mod")
+      {
+        PAUModStack.push(" isolation")           
+      }
+      else if (PAUIsolation == "high")
+      {
+        PAUHighStack.push(" isolation")           
+      }
+      else if (PAUIsolation == "dns")
+      {
+        PAUdnsStack.push(" isolation")           
+      }
+
+      if (PAUBinge == "low")                          //push Binge
+      {
+        PAULowStack.push(" binge")
+      }
+      else if (PAUBinge == "mod")
+      {
+        PAUModStack.push(" binge")           
+      }
+      else if (PAUBinge == "high")
+      {
+        PAUHighStack.push(" binge")           
+      }
+      else if (PAUBinge == "dns")
+      {
+        PAUdnsStack.push(" binge")           
+      }
+
+      if (PAUMovement == "low")                          //push Movement
+      {
+        PAULowStack.push(" movement")
+      }
+      else if (PAUMovement == "mod")
+      {
+        PAUModStack.push(" movement")           
+      }
+      else if (PAUMovement == "high")
+      {
+        PAUHighStack.push(" movement")           
+      }
+      else if (PAUMovement == "dns")
+      {
+        PAUdnsStack.push(" movement")           
+      }
+      
+      if (PAUCompensatory == "low")                          //push Compensatory
+      {
+        PAULowStack.push(" compensatory")
+      }
+      else if (PAUCompensatory == "mod")
+      {
+        PAUModStack.push(" compensatory")           
+      }
+      else if (PAUCompensatory == "high")
+      {
+        PAUHighStack.push(" compensatory")           
+      }
+      else if (PAUCompensatory == "dns")
+      {
+        PAUdnsStack.push(" compensatory")           
+      }
+      
+      if (PAUBodyChecking == "low")                          //push BodyChecking
+      {
+        PAULowStack.push(" body checking")
+      }
+      else if (PAUBodyChecking == "mod")
+      {
+        PAUModStack.push(" body checking")           
+      }
+      else if (PAUBodyChecking == "high")
+      {
+        PAUHighStack.push(" body checking")           
+      }
+      else if (PAUBodyChecking == "dns")
+      {
+        PAUdnsStack.push(" body checking")           
+      }
+
+
+      if(PAULowStack == 0 && PAUModStack == 0 && PAUHighStack == 0 && PAUdnsStack == 0)  //1                                       //start of the urges
+      {
+        msg += "Clt reported no urges after the meal.  "
+      }
+      else if(PAULowStack == 0 && PAUModStack == 0 && PAUHighStack == 0 && PAUdnsStack != 0)  //2
+      {
+        if (PAUdnsStack.length == 1)
+        {
+          var dnsWord = PAUdnsStack[0];
+          var fLetter = dnsWord.charAt(1);
+          if (fLetter == 'e' || fLetter == 'i')
+          {
+            msg += "Clt reported experiencing an"+PAUdnsStack+" urge after the meal.  "
+          }
+          else
+          {
+            msg += "Clt reported experiencing a"+PAUdnsStack+" urge after the meal.  "
+          }
+        }
+        else if (PAUdnsStack.length == 2)
+        {
+          msg += "Clt reported "+PAUdnsStack[0]+" and"+PAUdnsStack[1]+" urges after the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported "+PAUdnsStack[0];
+          for (var i = 1; i < PAUdnsStack.length; i++)
+          {
+            msg += ","+PAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+        }
+      }
+      else if(PAULowStack == 0 && PAUModStack == 0 && PAUHighStack != 0 && PAUdnsStack == 0)  //3
+      {
+        if (PAUHighStack.length == 1)
+        {
+          msg += "Clt reported experiencing a high"+PAUHighStack+" urge after the meal.  "
+        }
+        else if (PAUHighStack.length == 2)
+        {
+          msg += "Clt reported high"+PAUHighStack[0]+" and"+PAUHighStack[1]+" urges after the meal.  "
+        }
+        else 
+        {        
+          msg += "Clt reported high "+PAUHighStack[0];
+          for (var i = 1; i < PAUHighStack.length; i++)
+          {
+            msg += ","+PAUHighStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+        }
+      }
+      else if(PAULowStack == 0 && PAUModStack == 0 && PAUHighStack != 0 && PAUdnsStack != 0)  //4
+      {
+          msg += "Clt reported high "+PAUHighStack[0];
+          for (var i = 1; i < PAUHighStack.length; i++)
+          {
+            msg += ","+PAUHighStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+PAUdnsStack[0]+"";
+          for (var i = 1; i < PAUdnsStack.length; i++)
+          {
+            msg += ","+PAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack == 0 && PAUModStack != 0 && PAUHighStack == 0 && PAUdnsStack == 0)  //5
+      { 
+        if (PAUModStack.length == 1)
+        {
+          msg += "Clt reported experiencing a moderate"+PAUModStack+" urge after the meal.  "
+        }
+        else if (PAUModStack.length == 2)
+        {
+          msg += "Clt reported moderate"+PAUModStack[0]+" and"+PAUModStack[1]+" urges after the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported moderate "+PAUModStack[0];
+          for (var i = 1; i < PAUModStack.length; i++)
+          {
+            msg += ","+PAUModStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+        }
+      }
+      else if(PAULowStack == 0 && PAUModStack != 0 && PAUHighStack == 0 && PAUdnsStack != 0)  //6
+      {
+          msg += "Clt reported moderate "+PAUModStack[0];
+          for (var i = 1; i < PAUModStack.length; i++)
+          {
+            msg += ","+PAUModStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+PAUdnsStack[0]+"";
+          for (var i = 1; i < PAUdnsStack.length; i++)
+          {
+            msg += ","+PAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack == 0 && PAUModStack != 0 && PAUHighStack != 0 && PAUdnsStack == 0)  //7
+      {
+          msg += "Clt reported moderate "+PAUModStack[0];
+          for (var i = 1; i < PAUModStack.length; i++)
+          {
+            msg += ","+PAUModStack[i]+"";
+          }
+          msg += " urges and high"
+          msg += ""+PAUHighStack[0]+"";
+          for (var i = 1; i < PAUHighStack.length; i++)
+          {
+            msg += ","+PAUHighStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack == 0 && PAUModStack != 0 && PAUHighStack != 0 && PAUdnsStack != 0)  //8
+      {
+          msg += "Clt reported moderate "+PAUModStack[0];
+          for (var i = 1; i < PAUModStack.length; i++)
+          {
+            msg += ","+PAUModStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+PAUHighStack[0]+"";
+          for (var i = 1; i < PAUHighStack.length; i++)
+          {
+            msg += ","+PAUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+PAUdnsStack[0]+"";
+          for (var i = 1; i < PAUdnsStack.length; i++)
+          {
+            msg += ","+PAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack != 0 && PAUModStack == 0 && PAUHighStack == 0 && PAUdnsStack == 0)  //9
+      {
+        if (PAULowStack.length == 1)
+        {
+          msg += "Clt reported experiencing a low"+PAULowStack+" urge after the meal.  "
+        }
+        else if (PAULowStack.length == 2)
+        {
+          msg += "Clt reported low"+PAULowStack[0]+" and"+PAULowStack[1]+" urges after the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported low "+PAULowStack[0];
+          for (var i = 1; i < PAULowStack.length; i++)
+          {
+            msg += ","+PAULowStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+        }
+      }
+      else if(PAULowStack != 0 && PAUModStack == 0 && PAUHighStack == 0 && PAUdnsStack != 0)  //10
+      {
+          msg += "Clt reported low "+PAULowStack[0];
+          for (var i = 1; i < PAULowStack.length; i++)
+          {
+            msg += ","+PAULowStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+PAUdnsStack[0]+"";
+          for (var i = 1; i < PAUdnsStack.length; i++)
+          {
+            msg += ","+PAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack != 0 && PAUModStack == 0 && PAUHighStack != 0 && PAUdnsStack == 0)  //11
+      {
+          msg += "Clt reported low "+PAULowStack[0];
+          for (var i = 1; i < PAULowStack.length; i++)
+          {
+            msg += ","+PAULowStack[i]+"";
+          }
+          msg += " urges and high"
+          msg += ""+PAUHighStack[0]+"";
+          for (var i = 1; i < PAUHighStack.length; i++)
+          {
+            msg += ","+PAUHighStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack != 0 && PAUModStack == 0 && PAUHighStack != 0 && PAUdnsStack != 0)  //12
+      {
+          msg += "Clt reported low "+PAULowStack[0];
+          for (var i = 1; i < PAULowStack.length; i++)
+          {
+            msg += ","+PAULowStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+PAUHighStack[0]+"";
+          for (var i = 1; i < PAUHighStack.length; i++)
+          {
+            msg += ","+PAUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+PAUdnsStack[0]+"";
+          for (var i = 1; i < PAUdnsStack.length; i++)
+          {
+            msg += ","+PAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack != 0 && PAUModStack != 0 && PAUHighStack == 0 && PAUdnsStack == 0)  //13
+      {
+          msg += "Clt reported low "+PAULowStack[0];
+          for (var i = 1; i < PAULowStack.length; i++)
+          {
+            msg += ","+PAULowStack[i]+"";
+          }
+          msg += " urges and moderate"
+          msg += ""+PAUModStack[0]+"";
+          for (var i = 1; i < PAUModStack.length; i++)
+          {
+            msg += ","+PAUModStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack != 0 && PAUModStack != 0 && PAUHighStack == 0 && PAUdnsStack != 0)  //14
+      {
+          msg += "Clt reported low "+PAULowStack[0];
+          for (var i = 1; i < PAULowStack.length; i++)
+          {
+            msg += ","+PAULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+PAUModStack[0]+"";
+          for (var i = 1; i < PAUModStack.length; i++)
+          {
+            msg += ","+PAUModStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+PAUdnsStack[0]+"";
+          for (var i = 1; i < PAUdnsStack.length; i++)
+          {
+            msg += ","+PAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack!= 0 && PAUModStack != 0 && PAUHighStack != 0 && PAUdnsStack == 0)  //15
+      {
+          msg += "Clt reported low "+PAULowStack[0];
+          for (var i = 1; i < PAULowStack.length; i++)
+          {
+            msg += ","+PAULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+PAUModStack[0]+"";
+          for (var i = 1; i < PAUModStack.length; i++)
+          {
+            msg += ","+PAUModStack[i]+"";
+          }
+          msg += " urges, and high"
+          msg += ""+PAUHighStack[0]+"";
+          for (var i = 1; i < PAUHighStack.length; i++)
+          {
+            msg += ","+PAUHighStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(PAULowStack != 0 && PAUModStack != 0 && PAUHighStack != 0 && PAUdnsStack != 0)  //16
+      {
+          msg += "Clt reported low "+PAULowStack[0];
+          for (var i = 1; i < PAULowStack.length; i++)
+          {
+            msg += ","+PAULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+PAUModStack[0]+"";
+          for (var i = 1; i < PAUModStack.length; i++)
+          {
+            msg += ","+PAUModStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+PAUHighStack[0]+"";
+          for (var i = 1; i < PAUHighStack.length; i++)
+          {
+            msg += ","+PAUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+PAUdnsStack[0]+"";
+          for (var i = 1; i < PAUdnsStack.length; i++)
+          {
+            msg += ","+PAUdnsStack[i]+"";
+          }
+          
+          msg += " urges after the meal.  "
+      }
+      
+      if (POtherUrges != 0)                                   //Other Urges
+      {
+        msg += ""+POtherUrges+"  "
+      }
+      
+      if (PManageUrges != 0)                                  //Manage Urges
+      {
+        msg += "Client reports \""+PManageUrges+"\" as ways to manage their urges.  "
+      }
+      
+      if (PRituals != 0)
+      {
+        msg += "Client noted they engaged in \""+PRituals+"\" as rituals used during the meal.  "
+      }
+      
+      if (PRitualsChallenged != 0)
+      {
+        msg += "When promted \""+ritualString+"\"client responded, \""+PRitualsChallenged+".\"  "
+      }
+      
+      if (PEDThoughts != 0)
+      {
+        msg += "Client noted their ED thoughts during the meal were \""+PEDThoughts+".\"  "
+      }
+      
+      if (PEDCounters != 0)
+      {
+        msg += "Client shared \""+PEDCounters+"\" as counters toward these thoughts.  "
+      }
+      
+      if (PRecoveryThoughts != 0)
+      {
+        msg += "Client noted their recovery thoughts during the meal were \""+PRecoveryThoughts+".\"  "
+      }
+      
+      if (PFeelings != 0)
+      {
+        msg += "Client noted their feelings during the meal were \""+PFeelings+".\"  "
+      }
+      
+      if (PDuration != 0)
+      {
+        msg += "Client completed their meal in approximately "+PDuration+" minutes.  "
+      }
+      
+      if (PComplied == "Yes")
+      {
+        msg += "Client complied with their meal plan.  "
+      }
+      else
+      {
+        PSuppPercentage = (PSuppPercentage * 100);
+        msg += "Client supplemented for "+PSuppPercentage+"% portion of their meal.  "
+        if (PCompletedSupp == "completed")
+        {
+          msg += "Client completed supplement.  "
+        }
+        else 
+        {
+          msg += "Client did not complete supplement.  Client filled out supplement sheet in order to identify and communicate how they can receive additional support around ED behaviors. Client will be withheld from the peer support table for the following 24 hours in order to receive additional support and stabilize behavior use. "
+        }
+      }            
+    }
+    
+    else if (typeOfNote == "B")                                    // START B NOTE
+    {
+      var BnotesOnSP = BnotesOnSPValues[i][0];
+      var BIntention = BIntentionValues[i][0];
+      var BCltAppeared = BCltAppearedValues[i][0];
+      var BEvidence = BEvidenceValues[i][0];
+      var BBURestriction = BBURestrictionValues[i][0];
+      var BBUExercise = BBUExerciseValues[i][0];
+      var BBUPurge = BBUPurgeValues[i][0];
+      var BBUIsolation = BBUIsolationValues[i][0];
+      var BBUBinge = BBUBingeValues[i][0];
+      var BBUMovement = BBUMovementValues[i][0];
+      var BBUCompensatory = BBUCompensatoryValues[i][0];
+      var BBUSelfHarm = BBUSelfHarmValues[i][0];
+      var BBUBodyChecking = BBUBodyCheckingValues[i][0];
+      var BAURestriction = BAURestrictionValues[i][0];
+      var BAUExercise = BAUExerciseValues[i][0];
+      var BAUPurge = BAUPurgeValues[i][0];
+      var BAUIsolation = BAUIsolationValues[i][0];
+      var BAUBinge = BAUBingeValues[i][0];
+      var BAUMovement = BAUMovementValues[i][0];
+      var BAUCompensatory = BAUCompensatoryValues[i][0];
+      var BAUSelfHarm = BAUSelfHarmValues[i][0];
+      var BAUBodyChecking = BAUBodyCheckingValues[i][0];
+      var BOtherUrges = BOtherUrgesValues[i][0];
+      var BOtherUrges = BOtherUrgesValues[i][0];
+      var BManageUrge = BManageUrgeValues[i][0];
+      var BRituals = BRitualsValues[i][0];
+      var BRedirectCompliance = BRedirectComplianceValues[i][0];
+      var BEDThoughts = BEDThoughtsValues[i][0];
+      var BEDCounters = BEDCountersValues[i][0];
+      var BRecoveryThoughts = BRecoveryThoughtsValues[i][0];
+      var BFeelings = BFeelingsValues[i][0];
+      var BDuration = BDurationValues[i][0];
+      var BComplied = BCompliedValues[i][0];
+      var BSuppPercentage = BSuppPercentageValues[i][0];
+      var BCompletedSupp = BCompletedSuppValues[i][0];
+      
+      
+      msg += "\n\nBreakfast_"+Utilities.formatDate(theDate, "America/Mexico_City", "MM/dd/yyyy")+"_";
+      msg += "Client ate meal with direct staff presence in order to have increased support in challenging ED behaviors during the meal.  Client completed an ED diary card in order to share struggles with staff and utilize staff support after the meal.  " 
+
+      if (BnotesOnSP != 0)
+      {
+        msg += "Client did self portion their meal.  Client noted \""+BnotesOnSP+"\" in regards to self portioning their meal.  ";
+      }
+      else
+      {
+        msg += "Client did not self portion their meal.  ";
+      }
+
+      if (BIntention != 0)
+      {
+        msg += "Client noted their intention for the meal as \""+BIntention+".\"  "
+      }
+      
+      if (BCltAppeared != 0 && BEvidence != 0)
+      {
+        msg += "Client appeared \""+BCltAppeared+"\" as evidenced by \""+BEvidence+".\"  "
+      }
+      
+      var BBULowStack = []                                  //BEFORE URGES
+      var BBUModStack = []
+      var BBUHighStack = []
+      var BBUdnsStack = []      
+      
+      if (BBURestriction == "low")                         //push Restriction
+      {
+        BBULowStack.push(" restriction")           
+      }
+      else if (BBURestriction == "mod")
+      {
+        BBUModStack.push(" restriction")           
+      }
+      else if (BBURestriction == "high")
+      {
+        BBUHighStack.push(" restriction")           
+      }
+      else if (BBURestriction == "dns")
+      {
+        BBUdnsStack.push(" restriction")           
+      }
+      
+      if (BBUExercise == "low")                          //push Exercise
+      {
+        BBULowStack.push(" exercise")
+      }
+      else if (BBUExercise == "mod")
+      {
+        BBUModStack.push(" exercise")           
+      }
+      else if (BBUExercise == "high")
+      {
+        BBUHighStack.push(" exercise")           
+      }
+      else if (BBUExercise == "dns")
+      {
+        BBUdnsStack.push(" exercise")           
+      }
+      
+      if (BBUPurge == "low")                          //push Purge
+      {
+        BBULowStack.push(" purge")
+      }
+      else if (BBUPurge == "mod")
+      {
+        BBUModStack.push(" purge")           
+      }
+      else if (BBUPurge == "high")
+      {
+        BBUHighStack.push(" purge")           
+      }
+      else if (BBUPurge == "dns")
+      {
+        BBUdnsStack.push(" purge")           
+      }
+      
+      if (BBUIsolation == "low")                          //push Isolation
+      {
+        BBULowStack.push(" isolation")
+      }
+      else if (BBUIsolation == "mod")
+      {
+        BBUModStack.push(" isolation")           
+      }
+      else if (BBUIsolation == "high")
+      {
+        BBUHighStack.push(" isolation")           
+      }
+      else if (BBUIsolation == "dns")
+      {
+        BBUdnsStack.push(" isolation")           
+      }
+
+      if (BBUBinge == "low")                          //push Binge
+      {
+        BBULowStack.push(" binge")
+      }
+      else if (BBUBinge == "mod")
+      {
+        BBUModStack.push(" binge")           
+      }
+      else if (BBUBinge == "high")
+      {
+        BBUHighStack.push(" binge")           
+      }
+      else if (BBUBinge == "dns")
+      {
+        BBUdnsStack.push(" binge")           
+      }
+
+      if (BBUMovement == "low")                          //push Movement
+      {
+        BBULowStack.push(" movement")
+      }
+      else if (BBUMovement == "mod")
+      {
+        BBUModStack.push(" movement")           
+      }
+      else if (BBUMovement == "high")
+      {
+        BBUHighStack.push(" movement")           
+      }
+      else if (BBUMovement == "dns")
+      {
+        BBUdnsStack.push(" movement")           
+      }
+      
+      if (BBUCompensatory == "low")                          //push Compensatory
+      {
+        BBULowStack.push(" compensatory")
+      }
+      else if (BBUCompensatory == "mod")
+      {
+        BBUModStack.push(" compensatory")           
+      }
+      else if (BBUCompensatory == "high")
+      {
+        BBUHighStack.push(" compensatory")           
+      }
+      else if (BBUCompensatory == "dns")
+      {
+        BBUdnsStack.push(" compensatory")           
+      }
+      
+      if (BBUSelfHarm == "low")                          //push Self-harm
+      {
+        BBULowStack.push(" self-harm")
+      }
+      else if (BBUSelfHarm == "mod")
+      {
+        BBUModStack.push(" self-harm")           
+      }
+      else if (BBUSelfHarm == "high")
+      {
+        BBUHighStack.push(" self-harm")           
+      }
+      else if (BBUSelfHarm == "dns")
+      {
+        BBUdnsStack.push(" self-harm")           
+      }
+
+      if (BBUBodyChecking == "low")                          //push BodyChecking
+      {
+        BBULowStack.push(" body checking")
+      }
+      else if (BBUBodyChecking == "mod")
+      {
+        BBUModStack.push(" body checking")           
+      }
+      else if (BBUBodyChecking == "high")
+      {
+        BBUHighStack.push(" body checking")           
+      }
+      else if (BBUBodyChecking == "dns")
+      {
+        BBUdnsStack.push(" body checking")           
+      }
+
+
+
+     if(BBULowStack == 0 && BBUModStack == 0 && BBUHighStack == 0 && BBUdnsStack == 0)  //1                                       //start of the urges
+      {
+        msg += "Clt reported no urges before the meal.  "
+      }
+      else if(BBULowStack == 0 && BBUModStack == 0 && BBUHighStack == 0 && BBUdnsStack != 0)  //2
+      {
+        if (BBUdnsStack.length == 1)
+        {
+          var dnsWord = BBUdnsStack[0];
+          var fLetter = dnsWord.charAt(1);
+          if (fLetter == 'e' || fLetter == 'i')
+          {
+            msg += "Clt reported experiencing an"+BBUdnsStack+" urge before the meal.  "
+          }
+          else
+          {
+            msg += "Clt reported experiencing a"+BBUdnsStack+" urge before the meal.  "
+          }
+        }
+        else if (BBUdnsStack.length == 2)
+        {
+          msg += "Clt reported "+BBUdnsStack[0]+" and"+BBUdnsStack[1]+" urges before the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported "+BBUdnsStack[0];
+          for (var i = 1; i < BBUdnsStack.length; i++)
+          {
+            msg += ","+BBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+        }
+      }
+      else if(BBULowStack == 0 && BBUModStack == 0 && BBUHighStack != 0 && BBUdnsStack == 0)  //3
+      {
+        if (BBUHighStack.length == 1)
+        {
+          msg += "Clt reported experiencing a high"+BBUHighStack+" urge before the meal.  "
+        }
+        else if (BBUHighStack.length == 2)
+        {
+          msg += "Clt reported high"+BBUHighStack[0]+" and"+BBUHighStack[1]+" urges before the meal.  "
+        }
+        else 
+        {        
+          msg += "Clt reported high "+BBUHighStack[0];
+          for (var i = 1; i < BBUHighStack.length; i++)
+          {
+            msg += ","+BBUHighStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+        }
+      }
+      else if(BBULowStack == 0 && BBUModStack == 0 && BBUHighStack != 0 && BBUdnsStack != 0)  //4
+      {
+          msg += "Clt reported high "+BBUHighStack[0];
+          for (var i = 1; i < BBUHighStack.length; i++)
+          {
+            msg += ","+BBUHighStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+BBUdnsStack[0]+"";
+          for (var i = 1; i < BBUdnsStack.length; i++)
+          {
+            msg += ","+BBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack == 0 && BBUModStack != 0 && BBUHighStack == 0 && BBUdnsStack == 0)  //5
+      { 
+        if (BBUModStack.length == 1)
+        {
+          msg += "Clt reported experiencing a moderate"+BBUModStack+" urge before the meal.  "
+        }
+        else if (BBUModStack.length == 2)
+        {
+          msg += "Clt reported moderate"+BBUModStack[0]+" and"+BBUModStack[1]+" urges before the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported moderate "+BBUModStack[0];
+          for (var i = 1; i < BBUModStack.length; i++)
+          {
+            msg += ","+BBUModStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+        }
+      }
+      else if(BBULowStack == 0 && BBUModStack != 0 && BBUHighStack == 0 && BBUdnsStack != 0)  //6
+      {
+          msg += "Clt reported moderate "+BBUModStack[0];
+          for (var i = 1; i < BBUModStack.length; i++)
+          {
+            msg += ","+BBUModStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+BBUdnsStack[0]+"";
+          for (var i = 1; i < BBUdnsStack.length; i++)
+          {
+            msg += ","+BBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack == 0 && BBUModStack != 0 && BBUHighStack != 0 && BBUdnsStack == 0)  //7
+      {
+          msg += "Clt reported moderate "+BBUModStack[0];
+          for (var i = 1; i < BBUModStack.length; i++)
+          {
+            msg += ","+BBUModStack[i]+"";
+          }
+          msg += " urges and high"
+          msg += ""+BBUHighStack[0]+"";
+          for (var i = 1; i < BBUHighStack.length; i++)
+          {
+            msg += ","+BBUHighStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack == 0 && BBUModStack != 0 && BBUHighStack != 0 && BBUdnsStack != 0)  //8
+      {
+          msg += "Clt reported moderate "+BBUModStack[0];
+          for (var i = 1; i < BBUModStack.length; i++)
+          {
+            msg += ","+BBUModStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+BBUHighStack[0]+"";
+          for (var i = 1; i < BBUHighStack.length; i++)
+          {
+            msg += ","+BBUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+BBUdnsStack[0]+"";
+          for (var i = 1; i < BBUdnsStack.length; i++)
+          {
+            msg += ","+BBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack != 0 && BBUModStack == 0 && BBUHighStack == 0 && BBUdnsStack == 0)  //9
+      {
+        if (BBULowStack.length == 1)
+        {
+          msg += "Clt reported experiencing a low"+BBULowStack+" urge before the meal.  "
+        }
+        else if (BBULowStack.length == 2)
+        {
+          msg += "Clt reported low"+BBULowStack[0]+" and"+BBULowStack[1]+" urges before the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported low "+BBULowStack[0];
+          for (var i = 1; i < BBULowStack.length; i++)
+          {
+            msg += ","+BBULowStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+        }
+      }
+      else if(BBULowStack != 0 && BBUModStack == 0 && BBUHighStack == 0 && BBUdnsStack != 0)  //10
+      {
+          msg += "Clt reported low "+BBULowStack[0];
+          for (var i = 1; i < BBULowStack.length; i++)
+          {
+            msg += ","+BBULowStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+BBUdnsStack[0]+"";
+          for (var i = 1; i < BBUdnsStack.length; i++)
+          {
+            msg += ","+BBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack != 0 && BBUModStack == 0 && BBUHighStack != 0 && BBUdnsStack == 0)  //11
+      {
+          msg += "Clt reported low "+BBULowStack[0];
+          for (var i = 1; i < BBULowStack.length; i++)
+          {
+            msg += ","+BBULowStack[i]+"";
+          }
+          msg += " urges and high"
+          msg += ""+BBUHighStack[0]+"";
+          for (var i = 1; i < BBUHighStack.length; i++)
+          {
+            msg += ","+BBUHighStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack != 0 && BBUModStack == 0 && BBUHighStack != 0 && BBUdnsStack != 0)  //12
+      {
+          msg += "Clt reported low "+BBULowStack[0];
+          for (var i = 1; i < BBULowStack.length; i++)
+          {
+            msg += ","+BBULowStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+BBUHighStack[0]+"";
+          for (var i = 1; i < BBUHighStack.length; i++)
+          {
+            msg += ","+BBUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+BBUdnsStack[0]+"";
+          for (var i = 1; i < BBUdnsStack.length; i++)
+          {
+            msg += ","+BBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack != 0 && BBUModStack != 0 && BBUHighStack == 0 && BBUdnsStack == 0)  //13
+      {
+          msg += "Clt reported low "+BBULowStack[0];
+          for (var i = 1; i < BBULowStack.length; i++)
+          {
+            msg += ","+BBULowStack[i]+"";
+          }
+          msg += " urges and moderate"
+          msg += ""+BBUModStack[0]+"";
+          for (var i = 1; i < BBUModStack.length; i++)
+          {
+            msg += ","+BBUModStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack != 0 && BBUModStack != 0 && BBUHighStack == 0 && BBUdnsStack != 0)  //14
+      {
+          msg += "Clt reported low "+BBULowStack[0];
+          for (var i = 1; i < BBULowStack.length; i++)
+          {
+            msg += ","+BBULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+BBUModStack[0]+"";
+          for (var i = 1; i < BBUModStack.length; i++)
+          {
+            msg += ","+BBUModStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+BBUdnsStack[0]+"";
+          for (var i = 1; i < BBUdnsStack.length; i++)
+          {
+            msg += ","+BBUdnsStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack!= 0 && BBUModStack != 0 && BBUHighStack != 0 && BBUdnsStack == 0)  //15
+      {
+          msg += "Clt reported low "+BBULowStack[0];
+          for (var i = 1; i < BBULowStack.length; i++)
+          {
+            msg += ","+BBULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+BBUModStack[0]+"";
+          for (var i = 1; i < BBUModStack.length; i++)
+          {
+            msg += ","+BBUModStack[i]+"";
+          }
+          msg += " urges, and high"
+          msg += ""+BBUHighStack[0]+"";
+          for (var i = 1; i < BBUHighStack.length; i++)
+          {
+            msg += ","+BBUHighStack[i]+"";
+          }
+          msg += " urges before the meal.  "
+      }
+      else if(BBULowStack != 0 && BBUModStack != 0 && BBUHighStack != 0 && BBUdnsStack != 0)  //16
+      {
+          msg += "Clt reported low "+BBULowStack[0];
+          for (var i = 1; i < BBULowStack.length; i++)
+          {
+            msg += ","+BBULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+BBUModStack[0]+"";
+          for (var i = 1; i < BBUModStack.length; i++)
+          {
+            msg += ","+BBUModStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+BBUHighStack[0]+"";
+          for (var i = 1; i < BBUHighStack.length; i++)
+          {
+            msg += ","+BBUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+BBUdnsStack[0]+"";
+          for (var i = 1; i < BBUdnsStack.length; i++)
+          {
+            msg += ","+BBUdnsStack[i]+"";
+          }
+          
+          msg += " urges before the meal.  "
+      }
+      
+
+      var BAULowStack = []                                        //AFTER URGES
+      var BAUModStack = []
+      var BAUHighStack = []
+      var BAUdnsStack = []      
+      
+     if (BAURestriction == "low")                         //push Restriction
+      {
+        BAULowStack.push(" restriction")           
+      }
+      else if (BAURestriction == "mod")
+      {
+        BAUModStack.push(" restriction")           
+      }
+      else if (BAURestriction == "high")
+      {
+        BAUHighStack.push(" restriction")           
+      }
+      else if (BAURestriction == "dns")
+      {
+        BAUdnsStack.push(" restriction")           
+      }
+      
+      if (BAUExercise == "low")                          //push Exercise
+      {
+        BAULowStack.push(" exercise")
+      }
+      else if (BAUExercise == "mod")
+      {
+        BAUModStack.push(" exercise")           
+      }
+      else if (BAUExercise == "high")
+      {
+        BAUHighStack.push(" exercise")           
+      }
+      else if (BAUExercise == "dns")
+      {
+        BAUdnsStack.push(" exercise")           
+      }
+      
+      if (BAUPurge == "low")                          //push Purge
+      {
+        BAULowStack.push(" purge")
+      }
+      else if (BAUPurge == "mod")
+      {
+        BAUModStack.push(" purge")           
+      }
+      else if (BAUPurge == "high")
+      {
+        BAUHighStack.push(" purge")           
+      }
+      else if (BAUPurge == "dns")
+      {
+        BAUdnsStack.push(" purge")           
+      }
+      
+      if (BAUIsolation == "low")                          //push Isolation
+      {
+        BAULowStack.push(" isolation")
+      }
+      else if (BAUIsolation == "mod")
+      {
+        BAUModStack.push(" isolation")           
+      }
+      else if (BAUIsolation == "high")
+      {
+        BAUHighStack.push(" isolation")           
+      }
+      else if (BAUIsolation == "dns")
+      {
+        BAUdnsStack.push(" isolation")           
+      }
+
+      if (BAUBinge == "low")                          //push Binge
+      {
+        BAULowStack.push(" binge")
+      }
+      else if (BAUBinge == "mod")
+      {
+        BAUModStack.push(" binge")           
+      }
+      else if (BAUBinge == "high")
+      {
+        BAUHighStack.push(" binge")           
+      }
+      else if (BAUBinge == "dns")
+      {
+        BAUdnsStack.push(" binge")           
+      }
+
+      if (BAUMovement == "low")                          //push Movement
+      {
+        BAULowStack.push(" movement")
+      }
+      else if (BAUMovement == "mod")
+      {
+        BAUModStack.push(" movement")           
+      }
+      else if (BAUMovement == "high")
+      {
+        BAUHighStack.push(" movement")           
+      }
+      else if (BAUMovement == "dns")
+      {
+        BAUdnsStack.push(" movement")           
+      }
+      
+      if (BAUCompensatory == "low")                          //push Compensatory
+      {
+        BAULowStack.push(" compensatory")
+      }
+      else if (BAUCompensatory == "mod")
+      {
+        BAUModStack.push(" compensatory")           
+      }
+      else if (BAUCompensatory == "high")
+      {
+        BAUHighStack.push(" compensatory")           
+      }
+      else if (BAUCompensatory == "dns")
+      {
+        BAUdnsStack.push(" compensatory")           
+      }
+      
+      if (BAUSelfHarm == "low")                          //push Self-harm
+      {
+        BAULowStack.push(" self-harm")
+      }
+      else if (BAUSelfHarm == "mod")
+      {
+        BAUModStack.push(" self-harm")           
+      }
+      else if (BAUSelfHarm == "high")
+      {
+        BAUHighStack.push(" self-harm")           
+      }
+      else if (BAUSelfHarm == "dns")
+      {
+        BAUdnsStack.push(" self-harm")           
+      }
+
+      if (BAUBodyChecking == "low")                          //push BodyChecking
+      {
+        BAULowStack.push(" body checking")
+      }
+      else if (BAUBodyChecking == "mod")
+      {
+        BAUModStack.push(" body checking")           
+      }
+      else if (BAUBodyChecking == "high")
+      {
+        BAUHighStack.push(" body checking")           
+      }
+      else if (BAUBodyChecking == "dns")
+      {
+        BAUdnsStack.push(" body checking")           
+      }
+
+
+     if(BAULowStack == 0 && BAUModStack == 0 && BAUHighStack == 0 && BAUdnsStack == 0)  //1                                       //start of the urges
+      {
+        msg += "Clt reported no urges after the meal.  "
+      }
+      else if(BAULowStack == 0 && BAUModStack == 0 && BAUHighStack == 0 && BAUdnsStack != 0)  //2
+      {
+        if (BAUdnsStack.length == 1)
+        {
+          var dnsWord = BAUdnsStack[0];
+          var fLetter = dnsWord.charAt(1);
+          if (fLetter == 'e' || fLetter == 'i')
+          {
+            msg += "Clt reported experiencing an"+BAUdnsStack+" urge after the meal.  "
+          }
+          else
+          {
+            msg += "Clt reported experiencing a"+BAUdnsStack+" urge after the meal.  "
+          }
+        }
+        else if (BAUdnsStack.length == 2)
+        {
+          msg += "Clt reported "+BAUdnsStack[0]+" and"+BAUdnsStack[1]+" urges after the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported "+BAUdnsStack[0];
+          for (var i = 1; i < BAUdnsStack.length; i++)
+          {
+            msg += ","+BAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+        }
+      }
+      else if(BAULowStack == 0 && BAUModStack == 0 && BAUHighStack != 0 && BAUdnsStack == 0)  //3
+      {
+        if (BAUHighStack.length == 1)
+        {
+          msg += "Clt reported experiencing a high"+BAUHighStack+" urge after the meal.  "
+        }
+        else if (BAUHighStack.length == 2)
+        {
+          msg += "Clt reported high"+BAUHighStack[0]+" and"+BAUHighStack[1]+" urges after the meal.  "
+        }
+        else 
+        {        
+          msg += "Clt reported high "+BAUHighStack[0];
+          for (var i = 1; i < BAUHighStack.length; i++)
+          {
+            msg += ","+BAUHighStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+        }
+      }
+      else if(BAULowStack == 0 && BAUModStack == 0 && BAUHighStack != 0 && BAUdnsStack != 0)  //4
+      {
+          msg += "Clt reported high "+BAUHighStack[0];
+          for (var i = 1; i < BAUHighStack.length; i++)
+          {
+            msg += ","+BAUHighStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+BAUdnsStack[0]+"";
+          for (var i = 1; i < BAUdnsStack.length; i++)
+          {
+            msg += ","+BAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack == 0 && BAUModStack != 0 && BAUHighStack == 0 && BAUdnsStack == 0)  //5
+      { 
+        if (BAUModStack.length == 1)
+        {
+          msg += "Clt reported experiencing a moderate"+BAUModStack+" urge after the meal.  "
+        }
+        else if (BAUModStack.length == 2)
+        {
+          msg += "Clt reported moderate"+BAUModStack[0]+" and"+BAUModStack[1]+" urges after the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported moderate "+BAUModStack[0];
+          for (var i = 1; i < BAUModStack.length; i++)
+          {
+            msg += ","+BAUModStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+        }
+      }
+      else if(BAULowStack == 0 && BAUModStack != 0 && BAUHighStack == 0 && BAUdnsStack != 0)  //6
+      {
+          msg += "Clt reported moderate "+BAUModStack[0];
+          for (var i = 1; i < BAUModStack.length; i++)
+          {
+            msg += ","+BAUModStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+BAUdnsStack[0]+"";
+          for (var i = 1; i < BAUdnsStack.length; i++)
+          {
+            msg += ","+BAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack == 0 && BAUModStack != 0 && BAUHighStack != 0 && BAUdnsStack == 0)  //7
+      {
+          msg += "Clt reported moderate "+BAUModStack[0];
+          for (var i = 1; i < BAUModStack.length; i++)
+          {
+            msg += ","+BAUModStack[i]+"";
+          }
+          msg += " urges and high"
+          msg += ""+BAUHighStack[0]+"";
+          for (var i = 1; i < BAUHighStack.length; i++)
+          {
+            msg += ","+BAUHighStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack == 0 && BAUModStack != 0 && BAUHighStack != 0 && BAUdnsStack != 0)  //8
+      {
+          msg += "Clt reported moderate "+BAUModStack[0];
+          for (var i = 1; i < BAUModStack.length; i++)
+          {
+            msg += ","+BAUModStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+BAUHighStack[0]+"";
+          for (var i = 1; i < BAUHighStack.length; i++)
+          {
+            msg += ","+BAUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+BAUdnsStack[0]+"";
+          for (var i = 1; i < BAUdnsStack.length; i++)
+          {
+            msg += ","+BAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack != 0 && BAUModStack == 0 && BAUHighStack == 0 && BAUdnsStack == 0)  //9
+      {
+        if (BAULowStack.length == 1)
+        {
+          msg += "Clt reported experiencing a low"+BAULowStack+" urge after the meal.  "
+        }
+        else if (BAULowStack.length == 2)
+        {
+          msg += "Clt reported low"+BAULowStack[0]+" and"+BAULowStack[1]+" urges after the meal.  "
+        }
+        else
+        {        
+          msg += "Clt reported low "+BAULowStack[0];
+          for (var i = 1; i < BAULowStack.length; i++)
+          {
+            msg += ","+BAULowStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+        }
+      }
+      else if(BAULowStack != 0 && BAUModStack == 0 && BAUHighStack == 0 && BAUdnsStack != 0)  //10
+      {
+          msg += "Clt reported low "+BAULowStack[0];
+          for (var i = 1; i < BAULowStack.length; i++)
+          {
+            msg += ","+BAULowStack[i]+"";
+          }
+          msg += " urges and"
+          msg += ""+BAUdnsStack[0]+"";
+          for (var i = 1; i < BAUdnsStack.length; i++)
+          {
+            msg += ","+BAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack != 0 && BAUModStack == 0 && BAUHighStack != 0 && BAUdnsStack == 0)  //11
+      {
+          msg += "Clt reported low "+BAULowStack[0];
+          for (var i = 1; i < BAULowStack.length; i++)
+          {
+            msg += ","+BAULowStack[i]+"";
+          }
+          msg += " urges and high"
+          msg += ""+BAUHighStack[0]+"";
+          for (var i = 1; i < BAUHighStack.length; i++)
+          {
+            msg += ","+BAUHighStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack != 0 && BAUModStack == 0 && BAUHighStack != 0 && BAUdnsStack != 0)  //12
+      {
+          msg += "Clt reported low "+BAULowStack[0];
+          for (var i = 1; i < BAULowStack.length; i++)
+          {
+            msg += ","+BAULowStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+BAUHighStack[0]+"";
+          for (var i = 1; i < BAUHighStack.length; i++)
+          {
+            msg += ","+BAUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+BAUdnsStack[0]+"";
+          for (var i = 1; i < BAUdnsStack.length; i++)
+          {
+            msg += ","+BAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack != 0 && BAUModStack != 0 && BAUHighStack == 0 && BAUdnsStack == 0)  //13
+      {
+          msg += "Clt reported low "+BAULowStack[0];
+          for (var i = 1; i < BAULowStack.length; i++)
+          {
+            msg += ","+BAULowStack[i]+"";
+          }
+          msg += " urges and moderate"
+          msg += ""+BAUModStack[0]+"";
+          for (var i = 1; i < BAUModStack.length; i++)
+          {
+            msg += ","+BAUModStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack != 0 && BAUModStack != 0 && BAUHighStack == 0 && BAUdnsStack != 0)  //14
+      {
+          msg += "Clt reported low "+BAULowStack[0];
+          for (var i = 1; i < BAULowStack.length; i++)
+          {
+            msg += ","+BAULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+BAUModStack[0]+"";
+          for (var i = 1; i < BAUModStack.length; i++)
+          {
+            msg += ","+BAUModStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+BAUdnsStack[0]+"";
+          for (var i = 1; i < BAUdnsStack.length; i++)
+          {
+            msg += ","+BAUdnsStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack!= 0 && BAUModStack != 0 && BAUHighStack != 0 && BAUdnsStack == 0)  //15
+      {
+          msg += "Clt reported low "+BAULowStack[0];
+          for (var i = 1; i < BAULowStack.length; i++)
+          {
+            msg += ","+BAULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+BAUModStack[0]+"";
+          for (var i = 1; i < BAUModStack.length; i++)
+          {
+            msg += ","+BAUModStack[i]+"";
+          }
+          msg += " urges, and high"
+          msg += ""+BAUHighStack[0]+"";
+          for (var i = 1; i < BAUHighStack.length; i++)
+          {
+            msg += ","+BAUHighStack[i]+"";
+          }
+          msg += " urges after the meal.  "
+      }
+      else if(BAULowStack != 0 && BAUModStack != 0 && BAUHighStack != 0 && BAUdnsStack != 0)  //16
+      {
+          msg += "Clt reported low "+BAULowStack[0];
+          for (var i = 1; i < BAULowStack.length; i++)
+          {
+            msg += ","+BAULowStack[i]+"";
+          }
+          msg += " urges, moderate"
+          msg += ""+BAUModStack[0]+"";
+          for (var i = 1; i < BAUModStack.length; i++)
+          {
+            msg += ","+BAUModStack[i]+"";
+          }
+          msg += " urges, high"
+          msg += ""+BAUHighStack[0]+"";
+          for (var i = 1; i < BAUHighStack.length; i++)
+          {
+            msg += ","+BAUHighStack[i]+"";
+          }
+          msg += " urges, and"
+          msg += ""+BAUdnsStack[0]+"";
+          for (var i = 1; i < BAUdnsStack.length; i++)
+          {
+            msg += ","+BAUdnsStack[i]+"";
+          }
+          
+          msg += " urges after the meal.  "
+      }
+      
+      
+      
+      if (BRituals != 0)
+      {
+        msg += "Client required redirection for \""+BRituals+"\" rituals during the meal.  "
+      }
+      
+      if (BRedirectCompliance != 0)
+      {
+        msg += "Client appeared open to redirection and displayed motivation towards recovery by challenging \""+BRedirectCompliance+".\"  "
+      }
+      
+      if (BEDThoughts != 0)
+      {
+        msg += "Client noted their ED thoughts during the meal were \""+BEDThoughts+".\"  "
+      }
+      
+      if (BEDCounters != 0)
+      {
+        msg += "Client shared \""+BEDCounters+"\" as counters toward these thoughts.  "
+      }
+      
+      if (BRecoveryThoughts != 0)
+      {
+        msg += "Client noted their recovery thoughts during the meal were \""+BRecoveryThoughts+".\"  "
+      }
+      
+      if (BFeelings != 0)
+      {
+        msg += "Client noted their feelings during the meal were \""+BFeelings+".\"  "
+      }
+      
+      if (BDuration != 0)
+      {
+        msg += "Client completed their meal in approximately "+BDuration+" minutes.  "
+      }
+      
+      if (BComplied == "Yes")
+      {
+        msg += "Client complied with their meal plan.  "
+      }
+      else
+      {
+        BSuppPercentage = (BSuppPercentage * 100);
+        msg += "Client supplemented for "+BSuppPercentage+"% portion of their meal.  "
+        if (BCompletedSupp == "completed")
+        {
+          msg += "Client completed supplement.  "
+        }
+        else 
+        {
+          msg += "Client did not complete supplement.  Client filled out supplement sheet in order to identify and communicate how they can receive additional support around ED behaviors.  "
+        }
+      }
+    
+      
+    }  
+    else                                                           // START L/D NOTE
+    {
+    
+    }
+  }
+  showEm(msg);
+}
+
+    

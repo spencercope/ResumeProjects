@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1458785698 source:c:\users\spencer\documents\coding\codeblocks\prj3\main.cpp
+	<iostream>
+	<string>
+	"World.h"
+
+1458785569 c:\users\spencer\documents\coding\codeblocks\prj3\include\world.h
+	<iostream>
+	"GameObject.h"
+
+1458775962 c:\users\spencer\documents\coding\codeblocks\prj3\include\gameobject.h
+	<iostream>
+	<string.h>
+
+1458786231 source:c:\users\spencer\documents\coding\codeblocks\prj3\src\gameobject.cpp
+	"GameObject.h"
+	<iostream>
+	"World.h"
+
+1458786302 source:c:\users\spencer\documents\coding\codeblocks\prj3\src\world.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<iomanip>
+	"World.h"
+

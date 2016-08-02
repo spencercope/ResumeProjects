@@ -1,0 +1,55 @@
+function checkHouseReminders() 
+{
+  var count = 0;
+  var msg = "";
+  var spreadsheet = SpreadsheetApp.openById("SHEET ID HERE");              
+  var sheet = SpreadsheetApp.setActiveSheet(spreadsheet.getSheets()[0]);
+  var lastRow = sheet.getLastRow();
+  var startRow = 2;
+
+  var range = sheet.getRange(2,1,lastRow-startRow+1,1 );
+  var numRows = range.getNumRows();
+  var nameVals = range.getValues();
+   
+  range = sheet.getRange(2, 2, lastRow-startRow+1, 1);
+  var startDateVals = range.getValues();
+
+  range = sheet.getRange(2, 3, lastRow-startRow+1, 1);
+  var daysBetweenVals = range.getValues();
+  
+  range = sheet.getRange(2, 5, lastRow-startRow+1, 1);
+  var daysSinceVals = range.getValues();
+   
+  msg += "The following activities should be completed by the end of the weekend.\n\n" 
+
+  for (var i = 0; i < numRows; i++) 
+  {
+    var startDate = startDateVals[i][0];
+    var daysBetween = daysBetweenVals[i][0];
+    var daysSince = daysSinceVals[i][0];
+    
+    if (daysSince >= daysBetween)
+    {
+      var mod = daysSince % daysBetween;
+    }
+    else 
+    {
+      var mod = daysBetween % daysSince;
+    }
+    
+    Logger.log(mod)
+    
+    if(mod == 0.0) 
+    {
+      count++;
+      var name = nameVals[i][0];
+      msg += ""+name+"...........This should be done every "+daysBetween+" days.\n"
+    }
+  }
+
+  if (count > 0)
+  {
+    MailApp.sendEmail("EMAIL HERE", "HouseReminder", msg);
+  }
+   
+}
